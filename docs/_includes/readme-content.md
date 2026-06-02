@@ -62,6 +62,7 @@ A comprehensive array of compute and interfaces as a pluggable-stack arrangement
 - VOL06 - Correlative sensor-fusion module.
 - VOL07 - FeRAM expansion module.
 - VOL08 - Multichip expansion module.
+- VOL09 - High-capacity RAM module.
 - VOLxx - Wirewrap/Prototyping board.
 
 A core Volatco system consists of a multicomputer and USB/Power module.
