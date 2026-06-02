@@ -65,7 +65,9 @@ A comprehensive array of compute and interfaces as a pluggable-stack arrangement
 - VOLxx - Wirewrap/Prototyping board.
 
 A core Volatco system consists of a multicomputer and USB/Power module.
-![volatco-system](/docs/assets/volatco-stack.jpg)
+
+![volatco-system](../assets/volatco-stack.jpg)
+
 Power can be from an external battery if the system is programmed to run autonomously.
 
 **Key Features**
