@@ -49,19 +49,24 @@ The platform includes **two GA144A12 mesh-processor chips**, **2 MB SRAM**, **32
 
 The design supports deterministic low-latency behavior, with computers able to transition between active and inactive states in one gate delay.
 
-### Expansion capabilities
+### The Volatco System
 
-Pluggable-stack arrangement of Volatco and its modules.
+A comprehensive array of compute and interfaces as a pluggable-stack arrangement to diversify its capabilities.
 
-- VOL00 - Volatco
-- VOL01 - Power/USB module.
+- VOL00 - Volatco multicomputer.
+- VOL01 - USB/Power module.
 - VOL02 - Ethernet module.
 - VOL03 - BLE module.
-- VOL04 - External module.
+- VOL04 - External system control module.
 - VOL05 - Multimedia module.
 - VOL06 - Correlative sensor-fusion module.
-- VOL07 - FeRAM module.
-- VOLxx - Prototyping board.
+- VOL07 - FeRAM expansion module.
+- VOL08 - Multichip expansion module.
+- VOLxx - Wirewrap/Prototyping board.
+
+A core Volatco system consists of a multicomputer and USB/Power module.
+![volatco-system](/docs/assets/volatco-stack.jpg)
+Power can be from an external battery if the system is programmed to run autonomously.
 
 **Key Features**
 
