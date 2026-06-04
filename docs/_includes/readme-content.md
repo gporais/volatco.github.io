@@ -68,6 +68,8 @@ A comprehensive array of compute and interfaces as a pluggable-stack arrangement
 
 Videos can be found on the <a href="https://rumble.com/c/c-7906000?e9s=src_v1_clr" target="_blank" rel="noopener noreferrer">Volatco</a> Rumble channel.
 
+### A Core System
+
 A core Volatco system consists of a multicomputer and USB/Power module.
 
 ![volatco-system](../assets/volatco-stack.jpg)
