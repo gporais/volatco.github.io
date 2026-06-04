@@ -30,8 +30,8 @@ The platform includes **two GA144A12 mesh-processor chips**, **2 MB SRAM**, **32
 
 ### System summary
 
-- 144 independent F18A computers.
-- Up to 96B ops/s.
+- 2x 144 independent F18A computers.
+- Up to 192B combined ops/s.
 - ~13 uW idle to ~972 mW peak (~650 mW typical upper draw).
 - One-gate start/stop latency (~100 ps).
 - ~7 pJ per instruction.
@@ -70,6 +70,8 @@ A core Volatco system consists of a multicomputer and USB/Power module.
 ![volatco-system](../assets/volatco-stack.jpg)
 
 Power can be from an external battery if the system is programmed to run autonomously.
+
+Videos can be found on the [Volatco](https://rumble.com/c/c-7906000?e9s=src_v1_clr) Rumble channel.
 
 **Key Features**
 
