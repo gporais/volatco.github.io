@@ -210,9 +210,6 @@ For background on interactive Forth programming, Leo Brodie's *Starting Forth* i
   <figcaption>Volatco GPIO blinking a mini-red LED during the tutorial test.</figcaption>
 </figure>
 
-If the embedded player does not work in your browser, open the video directly on Rumble:
-[LED demo on Volatco](https://rumble.com/v7b2zli-led-demo-on-volatco.html)
-
 ## Troubleshooting
 
 If the LED does not blink:
