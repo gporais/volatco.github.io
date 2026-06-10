@@ -190,14 +190,14 @@ If the LED does not blink:
 
 - Verify LED polarity.
 - Verify the `550 ohm` resistor is in series with the LED.
-- Confirm you are really connected to documented signal `715.17`.
-- Confirm the board is in development mode while testing.
+- Confirm you are really connected to `715.17`. If stuck, look ![here](../assets/j10.png).
+- Confirm the board is in development mode.
 - Confirm the `arrayForth 3 VOLATCO` program was started.
 - Confirm `HOST LOAD TALK` was run.
-- Confirm `SERIAL LOAD PLUG` weas run.
+- Confirm `SERIAL LOAD PLUG` was run.
 - Reset the Volatco and press the space bar again to autobaud.
 - Confirm `AFORTH` was run before using block `1585`.
 - If block `1585` exists by `1585 LIST`, run `1585 LOAD` again.
-- If block `1585` does not exist, verify the LED demo code was typed correctly and saved using `FLUSH`.
+- If block `1585` does not exist, verify the polyForth code was entered correctly and saved using `FLUSH`.
 - Verify the blink interval in `run`.
 - Reset with `J4` and reload the program.
