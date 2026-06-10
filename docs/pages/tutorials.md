@@ -76,7 +76,7 @@ Use documented GPIO `715.17`.
 4. Connect the LED cathode to one of the ground pins immediately adjacent to `715.17` on `J10`.
 5. Place the LED and resistor on the breadboard in the same arrangement shown in the demo video.
 
-If you prefer to sink current instead of source it, reverse the LED-resistor order and adjust your program logic accordingly. `715.17` is a general-purpose `GPIO` signal. It is also a pin shared with nearby analog nodes, so keep this test simple and avoid attaching additional circuitry to that signal at the same time.
+If you prefer to sink current instead of source it, reverse the LED-resistor order and adjust your program logic accordingly. `715.17` is a general-purpose GPIO shared with nearby analog nodes, so keep tests simple and avoid attaching additional circuitry to that signal at the same time.
 
 ## LED Demo Code
 
@@ -102,7 +102,7 @@ LED demo block:
 15  ok
 ```
 
-If block `1585` is already present, use `1585 LIST` to confirm it matches this program. If it is not present, type this code into the terminal, then save or run it before continuing.
+If block `1585` is already present, use `1585 LIST` to confirm it matches this program. If it is not present, type this code into the terminal, then save or run it before continuing by using `FLUSH!`.
 
 ## Example Workflow
 
