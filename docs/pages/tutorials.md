@@ -22,9 +22,7 @@ Make an LED blink from a Volatco GPIO signal at a periodic rate.
 
 ## Parts Note
 
-This tutorial uses a `550 ohm` resistor and a mini-red LED with `Vp = 2.0 V`.
-
-Volatco GPIO behavior is set to `1.8 V` level. A `2.0 V` LED, the minature one for our demo, is recommended as other LEDs have not been tested. If the LED does not blink even though your program is running, the likely cause is the LED `Vp` is too great leading to insufficient current a the lead.
+This tutorial uses a `550 ohm` resistor and a mini-red LED with `Vp = 2.0 V`. Volatco GPIO logic-level is `1.8 V`. A `2.0 V` LED, the minature one for our demo, is recommended as other LEDs have not been tested, but can be made to work. If the LED you chose does not blink even though your program is running, the LED's `Vp` is too great yielding insufficient current at the lead.
 
 Alternatives:
 
