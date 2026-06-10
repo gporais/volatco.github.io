@@ -18,7 +18,7 @@ Make an LED blink from a Volatco GPIO signal.
 - A serial or IDE connection to the board
 
 <figure>
-  <img src="../assets/led-3mm-red-diffused.jpg" alt="Mini-red LED used in this tutorial" style="width: 100%; max-width: 220px; height: auto;">
+  <img src="{{ '/assets/led-3mm-red-diffused.jpg' | relative_url }}" alt="Mini-red LED used in this tutorial" style="width: 100%; max-width: 220px; height: auto;">
   <figcaption>In most through-hole LEDs like this one, the longer lead is the anode and the shorter lead is the cathode.</figcaption>
 </figure>
 
