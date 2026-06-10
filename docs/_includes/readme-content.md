@@ -65,7 +65,6 @@ A comprehensive array of compute and interfaces as a pluggable-stack arrangement
 - VOL09 - High-capacity RAM module.
 - VOLxx - Wirewrap/Prototyping board.
 
-
 Videos can be found on the <a href="https://rumble.com/c/c-7906000?e9s=src_v1_clr" target="_blank" rel="noopener noreferrer">Volatco</a> Rumble channel.
 
 ### A Core System
