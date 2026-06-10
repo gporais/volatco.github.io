@@ -207,7 +207,7 @@ For background on interactive Forth programming, Leo Brodie's *Starting Forth* i
     style="width: 100%; max-width: 640px; aspect-ratio: 16 / 9; border: 0;"
     allowfullscreen
   ></iframe>
-  <figcaption>Volatco GPIO blinking a mini-red LED during the tutorial test.</figcaption>
+  <figcaption>Volatco GPIO blinking a LED at a rate of 2000ms.</figcaption>
 </figure>
 
 ## Troubleshooting
