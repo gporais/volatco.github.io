@@ -199,12 +199,15 @@ For background on interactive Forth programming, Leo Brodie's *Starting Forth* i
 ## Demo Video
 
 <figure>
-  <iframe
-    src="https://rumble.com/embed/v78wbla/?pub=1uide8"
-    title="LED demo on Volatco"
-    style="width: 100%; max-width: 640px; aspect-ratio: 16 / 9; border: 0;"
-    allowfullscreen
-  ></iframe>
+  <video
+    controls
+    preload="metadata"
+    playsinline
+    src="{{ '/assets/volatco-gpio.mp4' | relative_url }}"
+    style="width: 100%; max-width: 640px; aspect-ratio: 16 / 9;"
+  >
+    Your browser does not support the video tag.
+  </video>
   <figcaption>Volatco GPIO blinking a LED at a rate of 2000ms.</figcaption>
 </figure>
 
