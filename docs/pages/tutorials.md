@@ -12,8 +12,8 @@ Make an LED blink from a Volatco GPIO signal at a periodic rate.
 - One mini-red LED with forward voltage `Vp = 2.0 V`
 - One `550 ohm` current-limiting resistor
 - Jumper wires
-- A breadboard or another safe way to connect the LED
-- A serial or IDE connection to the board
+- Plugboard or breadboard to create the circuit
+- A volatco-serial connection to the board
 
 <figure>
   <img src="{{ '/assets/led-3mm-red-diffused.jpg' | relative_url }}" alt="Mini-red LED used in this tutorial" style="width: 100%; max-width: 220px; height: auto;">
@@ -23,12 +23,6 @@ Make an LED blink from a Volatco GPIO signal at a periodic rate.
 ## Parts Note
 
 This tutorial uses a `550 ohm` resistor and a 3mm red LED with `Vp = 2.0 V`. Volatco GPIO logic-level is `1.8 V`. A `2.0 V` LED, the minature one for our demo, is recommended as other LEDs have not been tested, but can be made to work. If the LED you chose does not blink even though your program is running, the LED's `Vp` is too great yielding insufficient current at the lead.
-
-Alternatives:
-
-- Substitute an LED with a lower forward voltage.
-- Drive the LED from a higher external rail through a transistor or buffer stage.
-- Treat this first exercise as a logic-toggle test and verify the pin with measurement equipment before adding a driver stage.
 
 ## Before You Start
 
@@ -66,7 +60,7 @@ If block `1585` already exists, its `run` definition uses `2000` as the millisec
 
 ## Wiring the LED
 
-Use documented GPIO `715.17`.
+Use GPIO `715.17`.
 
 1. Locate the header position that exposes signal `715.17`.
 2. Connect `715.17` to the `550 ohm` resistor.
@@ -190,7 +184,7 @@ If the LED does not blink:
 
 - Verify LED polarity.
 - Verify the `550 ohm` resistor is in series with the LED.
-- Confirm you are really connected to `715.17`. If stuck, look ![here](../assets/j10.png).
+- Confirm you are really connected to `715.17`.
 - Confirm the board is in development mode.
 - Confirm the `arrayForth 3 VOLATCO` program was started.
 - Confirm `HOST LOAD TALK` was run.
