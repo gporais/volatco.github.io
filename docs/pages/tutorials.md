@@ -151,6 +151,28 @@ This loads the code in block `1585` and starts it running.
 
 Each time you enter `1585 LOAD`, node `715` is reprogrammed so you can edit `run` and load again.
 
+## Change the Blink Rate
+
+The useful part of this exercise is changing the blink period and loading it again.
+
+In block `1585`, line 4 contains:
+
+```text
+: run   2000. ( ms per half of square wave)
+```
+
+The value `2000.` is the delay in milliseconds for each half cycle of the square wave. Lower values make the LED blink faster. Higher values make it blink slower.
+
+Example:
+
+- Change `2000.` to `500.` for a faster blink.
+- Load the program again with `1585 LOAD`.
+- Watch the LED and confirm that the blink period changed.
+
+If you do not use `FLUSH`, the edited value is usually not written to mass storage, so you can experiment without permanently changing the stored block.
+
+You can also type `Q` while viewing the block shadow for the short note that describes what the demo is doing.
+
 ## What Success Looks Like
 
 - The LED blink code is available either in block `1585` or as code entered manually at the terminal.
