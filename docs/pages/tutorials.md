@@ -78,7 +78,8 @@ Use documented GPIO `715.17`.
 1. Locate the header position that exposes signal `715.17`.
 2. Connect `715.17` to the `550 ohm` resistor.
 3. Connect the resistor to the LED anode.
-4. Connect the LED cathode to ground.
+4. Connect the LED cathode to one of the ground pins immediately adjacent to `715.17` on `J10`.
+5. Place the LED and resistor on the breadboard in the same arrangement shown in the demo video.
 
 If you prefer to sink current instead of source it, reverse the LED-resistor order and adjust your program logic accordingly.
 
