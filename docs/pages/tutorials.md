@@ -4,17 +4,9 @@ title: Volatco Tutorials
 permalink: /pages/tutorials/
 ---
 
-Welcome to the Volatco tutorials page. This section collects practical, hands-on guides for getting hardware connected, loading simple programs, and validating behavior on a real board.
-
-# Tutorial Index
-
-| Tutorial | Goal | Status |
-| --- | --- | --- |
-| Blink an LED with Volatco | Drive one GPIO line so an external LED turns on and off in a repeating pattern. | Available |
-
 # Blink an LED with Volatco
 
-This first tutorial is the classic hardware hello-world: make an LED blink from a Volatco GPIO signal.
+Make an LED blink from a Volatco GPIO signal.
 
 ## What You Will Need
 
@@ -31,11 +23,11 @@ In most through-hole LEDs like this one, the longer lead is the anode and the sh
 
 ## Parts Note
 
-This tutorial is written around a `550 ohm` resistor and a mini-red LED with `Vp = 2.0 V`.
+This tutorial uses a `550 ohm` resistor and a mini-red LED with `Vp = 2.0 V`.
 
-That combination is safe for a simple LED test, but there is one important caveat: LEDs respond to current, and the available current depends on the voltage headroom across the LED and resistor. Volatco GPIO behavior is documented around a `1.8 V` supply, so this mini-red `2.0 V` LED may not leave enough headroom for useful current to flow when driven directly from a GPIO pin. If the LED does not blink even though your program is running, the likely cause may be insufficient LED current rather than a bad connection.
+Volatco GPIO behavior is documented around a `1.8 V` supply. A `2.0 V` LED may not leave enough headroom for useful current to flow when driven directly from a GPIO pin. If the LED does not blink even though your program is running, the likely cause may be insufficient LED current.
 
-For a guaranteed visible blink, use one of these approaches:
+Alternatives:
 
 - Substitute an LED with a lower forward voltage.
 - Drive the LED from a higher external rail through a transistor or buffer stage.
@@ -43,16 +35,45 @@ For a guaranteed visible blink, use one of these approaches:
 
 ## Before You Start
 
-Use a simple development setup so the board is easy to control and recover:
-
 - Set `J5` to development mode by connecting pins 1 and 2.
 - Use `J4` for manual reset when needed.
-- Use `J8` for IDE or serial development access.
+- Use the `VOL01` USB/Power module connected to `VOL00` in the same stacked arrangement shown in the main-page system photo.
+- Connect both USB-C connectors through a USB hub.
 - If you want to prevent SPI flash from auto-booting while experimenting, install `J6` and keep `J5` in development mode.
+
+## Prepare the Volatco
+
+Prepare the board in this order:
+
+1. Connect the Volatco stack, `VOL00` plus `VOL01`, to the PC.
+2. Start the `arrayForth 3 VOLATCO` program.
+3. Type `HOST LOAD TALK`.
+4. Type `SERIAL LOAD PLUG`.
+5. Press the attached `J4` reset button.
+6. Hit the space bar to set autobaud.
+
+You should then see:
+
+```text
+pF/G144.03b1 12/21/18
+hi
+```
+
+Then continue:
+
+1. Type `20 DRIVE HI` to do the polyFORTH `9 LOAD`.
+2. Type `AFORTH` and wait for the variables to be defined.
+3. Type `1585 LIST` to inspect the LED demo block.
+
+If block `1585` already exists, its `run` definition uses `2000` as the milliseconds per half cycle of the square wave. Edit that value if you want a different blink rate.
+
+If block `1585` does not already exist on your system, type the LED demo code into the terminal manually, in the interactive Forth style described in Leo Brodie's *Starting Forth*, then save or run it before continuing.
+
+If you make a mistake while editing, reset the Volatco, repeat the startup sequence, inspect block `1585`, and fix what you changed. If you do not use `FLUSH`, your edits are usually not written to mass storage.
 
 ## Wiring the LED
 
-For this tutorial, use documented GPIO `715.17`.
+Use documented GPIO `715.17`.
 
 1. Locate the header position that exposes signal `715.17`.
 2. Connect `715.17` to the `550 ohm` resistor.
@@ -61,35 +82,65 @@ For this tutorial, use documented GPIO `715.17`.
 
 If you prefer to sink current instead of source it, reverse the LED-resistor order and adjust your program logic accordingly.
 
-With the `550 ohm` resistor and mini-red `2.0 V` LED, the direct GPIO method is best treated as an experiment. It may work with some LEDs and setups, but it should not be assumed to provide enough current from a `1.8 V` GPIO swing.
+With the `550 ohm` resistor and mini-red `2.0 V` LED, direct GPIO drive may not provide enough current from a `1.8 V` GPIO swing.
 
-`715.17` is documented in the published reference as a general-purpose `GPIO` signal. It is also noted there as a pin shared with nearby analog nodes, so keep this tutorial focused on a simple blink test and avoid attaching additional circuitry to that signal at the same time.
+`715.17` is documented as a general-purpose `GPIO` signal. It is also noted as a pin shared with nearby analog nodes, so keep this test simple and avoid attaching additional circuitry to that signal at the same time.
 
 ## Suggested First Test
 
-For this tutorial, place the LED blink program into polyForth block `1585`.
+Use the existing LED blink program in polyForth block `1585` if it is present on your system.
 
-That program should do three things:
+If it is not present, enter the LED blink code manually at the terminal, then save or run it and continue.
+
+The program does three things:
 
 1. Configure `715.17` as an output.
 2. Drive it high, wait a short time, then drive it low.
 3. Repeat forever.
 
-In this example, the programmed blink interval is `2000` milliseconds per switch-state change, which is slow enough to verify easily by eye.
+In this example, the blink interval is `2000` milliseconds per switch-state change.
+
+## LED Demo Code
+
+LED demo block:
+
+```text
+1585
+ 0 ( 715.17 Blink test)   STREAMER LOAD
+ 1 ASM[ # 715 NODE ERS # 0 org
+ 2
+ 3 : ms ( n)  for  999. for  415. for  unext  next next ;
+ 4 : run   2000. ( ms per half of square wave)
+ 5   dup begin  drop  x30000. !b  dup ms  x20000. !b  dup ms
+ 6     @b xA800. and until  warm ;   >BIN ]ASM
+ 7
+ 8 0 ARRAY MYP  207 ORGN 210 TO 710 TO 715 TO -1 ,
+ 9
+10 207 STREAM[   ' MYP COURSE
+11     FRAME[   715 +NODE  0 64 715 /PART
+12        IO /B  715 ITS run /P   ]FRAME  ]STREAM
+13   !SNORK
+14
+15  ok
+```
+
+If block `1585` is already present, use `1585 LIST` to confirm it matches this program. If it is not present, type this code into the terminal, then save or run it before continuing.
 
 ## Example Workflow
 
 1. Power the board in development mode.
-2. Connect your development interface through `J8`.
-3. Enter or paste the LED blink polyForth code into block `1585`.
-4. In arrayForth, type `1585 LOAD`.
-5. Confirm that the command starts the program immediately.
-6. Observe `715.17` changing state every `2000` milliseconds.
-7. Confirm that the LED blinks steadily.
+2. Prepare the stack and start arrayForth.
+3. Inspect block `1585` with `1585 LIST`.
+4. If the block exists, optionally edit the `run` definition.
+5. If the block does not exist, type the LED demo code into the terminal manually, then save or run it.
+6. If the block exists, type `1585 LOAD`.
+7. Confirm that the program starts node `715`.
+8. Observe `715.17` changing state at the programmed rate.
+9. Confirm that the LED blinks steadily.
 
 ## Running the Program
 
-Start the tutorial program from arrayForth with:
+If block `1585` is present, start the program from arrayForth with:
 
 ```text
 1585 LOAD
@@ -97,20 +148,19 @@ Start the tutorial program from arrayForth with:
 
 This loads the code in block `1585` and starts it running.
 
+Each time you enter `1585 LOAD`, node `715` is reprogrammed so you can edit `run` and load again.
+
 ## What Success Looks Like
 
-You have completed this tutorial when:
-
-- The LED blink code is stored in block `1585`.
-- Typing `1585 LOAD` in arrayForth starts the program.
-- `715.17` changes state every `2000` milliseconds.
+- The LED blink code is available either in block `1585` or as code entered manually at the terminal.
+- `arrayForth 3 VOLATCO`, serial services, and arrayForth are all loaded successfully.
+- Typing `1585 LOAD` in arrayForth starts the program when block `1585` is present, or the manually entered code runs correctly.
+- `715.17` changes state at the programmed interval.
 - The LED blinks repeatedly without manual intervention.
 - Resetting the board restarts the blink program cleanly.
 - The board remains stable while the LED is connected.
 
 ## Demo Video
-
-The short video below shows the LED blinking as described in this tutorial.
 
 <figure>
   <video controls preload="metadata" style="width: 100%; max-width: 640px; height: auto;">
@@ -128,13 +178,13 @@ If the LED does not blink:
 - Verify the `550 ohm` resistor is in series with the LED.
 - Confirm you are really connected to documented signal `715.17`.
 - Confirm the board is in development mode while testing.
-- Confirm the code was entered into block `1585`.
-- In arrayForth, run `1585 LOAD` again.
-- Verify the blink interval in the code is `2000` milliseconds.
+- Confirm the `arrayForth 3 VOLATCO` program was started.
+- Confirm `HOST LOAD TALK` was run.
+- Confirm `SERIAL LOAD` and `PLUG` were run.
+- Reset the Volatco and press the space bar again to autobaud.
+- Confirm `AFORTH` was run before using block `1585`.
+- If block `1585` exists, run `1585 LOAD` again.
+- If block `1585` does not exist, verify the LED demo code was typed correctly at the terminal and then saved or run.
+- Verify the blink interval in `run`.
 - Reset with `J4` and reload the program.
-- Consider that the mini-red `2.0 V` LED on a `550 ohm` resistor may not receive enough current from a direct `1.8 V` GPIO output even when the pin is toggling correctly.
-
-## Notes
-
-- Keep this first exercise simple: one LED, one pin, one loop.
-- Once this works, the next tutorials can build toward button input, timed events, and communication between nodes.
+- The mini-red `2.0 V` LED on a `550 ohm` resistor may not receive enough current from a direct `1.8 V` GPIO output even when the pin is toggling correctly.
