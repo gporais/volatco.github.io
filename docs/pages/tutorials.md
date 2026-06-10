@@ -4,9 +4,7 @@ title: Volatco Tutorials
 permalink: /pages/tutorials/
 ---
 
-# Blink an LED with Volatco
-
-Make an LED blink from a Volatco GPIO signal.
+Make an LED blink from a Volatco GPIO signal at a periodic rate.
 
 ## What You Will Need
 
@@ -202,13 +200,14 @@ For background on interactive Forth programming, Leo Brodie's *Starting Forth* i
 
 <figure>
   <iframe
-    src="https://rumble.com/v7b2zli-led-demo-on-volatco.html?mref=1uide8&mc=e04fa"
+    src="https://rumble.com/embed/v78wbla/?pub=1uide8"
     title="LED demo on Volatco"
     style="width: 100%; max-width: 640px; aspect-ratio: 16 / 9; border: 0;"
     allowfullscreen
   ></iframe>
   <figcaption>Volatco GPIO blinking a LED at a rate of 2000ms.</figcaption>
 </figure>
+
 
 ## Troubleshooting
 
