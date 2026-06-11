@@ -147,10 +147,10 @@ If you do not use `FLUSH`, the edited value is not written to mass storage; ther
 
 ## Further Reading
 
-For background on interactive Forth programming, Leo Brodie's *Starting Forth* is still the standard beginner text.
+For background on interactive Forth programming, Leo Brodie's *Starting Forth* remains a standard-bearer for beginners and professionals.
 
 - [Read *Starting Forth* online](https://www.forth.com/starting-forth/) at Forth, Inc.
-- [Download the *Starting Forth* PDF](https://www.forth.com/wp-content/uploads/2018/01/Starting-FORTH.pdf)
+- <a href="https://www.forth.com/wp-content/uploads/2018/01/Starting-FORTH.pdf" target="_blank" rel="noopener noreferrer">Download</a> the <em>Starting Forth</em> PDF
 
 ## A Successful Validation
 
