@@ -159,8 +159,7 @@ For background on interactive Forth programming, Leo Brodie's *Starting Forth* i
 - Typing `1585 LOAD` in arrayForth starts the program when block `1585` is present, or the manually entered code runs correctly.
 - `715.17` changes state at the programmed interval.
 - The LED blinks repeatedly without manual intervention.
-- Resetting the board restarts the blink program cleanly.
-- The board remains stable while the LED is connected.
+- Editing block `1585` and re-LOADing it interrupts the blink program, replaces it in node 715 memory, and starts the node running at the new cycle period.
 
 ## Demo Video
 
