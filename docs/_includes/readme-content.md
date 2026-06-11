@@ -85,7 +85,7 @@ Power can be from an external battery if the system is programmed to run autonom
 | **Modular Expansion Row** | Connect external power modules, additional memory, Bluetooth, Ethernet, or bespoke I/O boards via header rows. |
 | **Compact Form Factor** | Designed to fit into tight enclosures, drone payload bays, or multi‑board racks for scalable clusters. |
 
-The information below pertains to the technical details of a Volatco.
+The information below is a focus on the technical details of Volatco.
 
 ### The Volatco pin-set
 
