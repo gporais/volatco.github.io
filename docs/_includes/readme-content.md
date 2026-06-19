@@ -54,12 +54,12 @@ A comprehensive array of compute and interfaces as a pluggable-stack arrangement
 - VOL01 - USB/Power module.
 - VOL02 - Ethernet module.
 - VOL03 - BLE module.
-- VOL04 - External system control module.
+- VOL04 - Power-control module.
 - VOL05 - Multimedia module.
 - VOL06 - Correlative sensor-fusion module.
 - VOL07 - FeRAM expansion module.
 - VOL08 - Multichip expansion module.
-- VOL09 - High-capacity RAM module.
+- VOL09 - High-capacity RAM expansion module.
 - VOLxx - Wirewrap/Prototyping board.
 
 Videos can be found on the <a href="https://rumble.com/c/c-7906000?e9s=src_v1_clr" target="_blank" rel="noopener noreferrer">Volatco</a> Rumble channel.
