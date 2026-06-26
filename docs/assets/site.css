@@ -325,6 +325,69 @@ body {
   .toc {
     position: static;
     max-height: none;
+  }
+
+  .toc--pages {
+    order: -1;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    margin: 0 -12px;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .toc--pages .toc__title {
+    display: none;
+  }
+
+  .toc--pages .toc__nav {
+    margin: 0;
+    flex: 0 0 auto;
+  }
+
+  .toc--pages nav {
+    min-width: 0;
+  }
+
+  .toc--pages .toc__list {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .toc--pages .toc__item {
+    margin: 0;
+    flex: 0 0 auto;
+  }
+
+  .toc--pages .toc__home,
+  .toc--pages .toc__item a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--toc-border);
+    border-radius: 999px;
+    background: #111b2a;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .toc--pages .toc__item--active a {
+    background: #1a2840;
+    border-color: #42506f;
+  }
+
+  .toc--sections {
     order: 2;
   }
 
