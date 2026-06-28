@@ -38,10 +38,11 @@ Prepare the board in this order:
 
 1. Connect the Volatco stack, `VOL00` plus `VOL01`, to the PC.
 2. Start the `arrayForth 3 VOLATCO` program.
-3. Type `HOST LOAD TALK`.
-4. Type `SERIAL LOAD PLUG`.
-5. Press the attached `J4` reset button.
-6. Hit the space bar to set autobaud.
+3. Type `AFORTH`
+4. Type `1662 LOAD`
+5. Type `HOST LOAD TALK`
+6. Type `SERIAL LOAD PLUG`
+7. Hit the space bar to set autobaud.
 
 You should then see:
 
@@ -52,7 +53,7 @@ hi
 
 Then continue:
 
-1. Type `20 DRIVE HI` to do the polyFORTH `9 LOAD`.
+1. Type `20 DRIVE HI` to do the polyFORTH `9 LOAD`
 2. Type `AFORTH` and wait for the variables to be defined.
 3. Type `1585 LIST` to inspect the LED demo block.
 
@@ -60,12 +61,12 @@ If block `1585` already exists, its `run` definition uses `2000` as the millisec
 
 ## Wiring the LED
 
-Use GPIO `715.17`.
+Use GPIO `715.17`
 
-1. Locate the header position that exposes signal `715.17`.
+1. Locate the header position that exposes signal `715.17`
 2. Connect `715.17` to the `550 ohm` resistor.
 3. Connect the resistor to the LED anode.
-4. Connect the LED cathode to one of the ground pins immediately adjacent to `715.17` on `J10`.
+4. Connect the LED cathode to one of the ground pins immediately adjacent to `715.17` on `J10`
 5. Place the LED and resistor on the breadboard in the same arrangement shown in the demo video.
 
 If you prefer to sink current instead of source it, reverse the LED-resistor order and adjust your program logic accordingly. `715.17` is a general-purpose GPIO shared with nearby analog nodes, so keep tests simple and avoid attaching additional circuitry to that signal at the same time.
@@ -94,17 +95,17 @@ LED blink in polyForth:
 15  ok
 ```
 
-If block `1585` is already present, use `1585 LIST` to confirm it matches this program. If it is not present, type this code into the terminal, then save or run it before continuing by using `FLUSH`.
+If block `1585` is already present, use `1585 LIST` to confirm it matches this program. If it is not present, type this code into the terminal, then save or run it before continuing by using `FLUSH`
 
 ## Example Workflow
 
 1. Power the board in development mode.
 2. Prepare the stack and start arrayForth.
-3. Inspect block `1585` with `1585 LIST`.
+3. Inspect block `1585` with `1585 LIST`
 4. If the block exists, optionally edit the `run` definition.
 5. If the block does not exist, type the LED demo code into the terminal manually, then save or run it.
 6. If the block exists, type `1585 LOAD`.
-7. Confirm that the program starts node `715`.
+7. Confirm that the program starts node `715`
 8. Observe `715.17` changing state at the programmed rate.
 9. Confirm that the LED blinks steadily.
 
@@ -140,7 +141,7 @@ F 2000.
 R 500.
 ```
 
-- Load the program again with `1585 LOAD`.
+- Load the program again with `1585 LOAD`
 - Watch the LED and confirm that the blink period changed.
 
 If you do not use `FLUSH`, the edited value is not written to mass storage; therefore, the experiment is not expressly saved to memory. You can also type `Q` while viewing the block shadow for the short note that describes what the code is doing.
@@ -183,14 +184,14 @@ If the LED does not blink:
 
 - Verify LED polarity.
 - Verify the `550 ohm` resistor is in series with the LED.
-- Confirm you are really connected to `715.17`.
+- Confirm you are really connected to `715.17`
 - Confirm the board is in development mode.
 - Confirm the `arrayForth 3 VOLATCO` program was started.
 - Confirm `HOST LOAD TALK` was run.
 - Confirm `SERIAL LOAD PLUG` was run.
 - Reset the Volatco and press the space bar again to autobaud.
-- Confirm `AFORTH` was run before using block `1585`.
+- Confirm `AFORTH` was run before using block `1585`
 - If block `1585` exists by `1585 LIST`, run `1585 LOAD` again.
-- If block `1585` does not exist, verify the polyForth code was entered correctly and saved using `FLUSH`.
+- If block `1585` does not exist, verify the polyForth code was entered correctly and saved using `FLUSH`
 - Verify the blink interval in `run`.
 - Reset with `J4` and reload the program.
